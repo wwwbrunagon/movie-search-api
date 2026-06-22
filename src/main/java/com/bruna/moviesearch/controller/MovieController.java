@@ -2,6 +2,9 @@ package com.bruna.moviesearch.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.bruna.moviesearch.service.MovieService;
+import com.bruna.moviesearch.dto.MovieResponse;
+
+import java.util.List;
 
 @RestController
 public class MovieController {
@@ -13,7 +16,7 @@ public class MovieController {
     }
 
     @GetMapping("/movies")
-    public String getMovies(){
+    public List<MovieResponse> getMovies(){
         return movieService.getMovies();
     }
 }
