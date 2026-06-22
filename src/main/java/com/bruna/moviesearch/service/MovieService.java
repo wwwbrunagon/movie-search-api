@@ -1,14 +1,14 @@
 package com.bruna.moviesearch.service;
+import com.bruna.moviesearch.dto.MovieSearchResponse;
 import org.springframework.stereotype.Service;
 import com.bruna.moviesearch.dto.MovieResponse;
 import java.util.List;
 
-
 @Service
 public class MovieService {
 
-    public List<MovieResponse> getMovies() {
-        return List.of(
+    public MovieSearchResponse searchMovies() {
+        List<MovieResponse> movies = List.of(
                 new MovieResponse(
                         1L,
                         "Interstellar",
@@ -25,6 +25,13 @@ public class MovieService {
                         8.3,
                         "/inception-poster.jpg"
                 )
+        );
+
+        return new MovieSearchResponse(
+                1,
+                1,
+                movies.size(),
+                movies
         );
     }
 }
